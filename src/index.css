@@ -30,3 +30,7 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Classes toggled from static/main.js — keep them in the compiled CSS */
+@source "./static/main.js";
+@source inline("rotate-45 translate-y-[7px] -rotate-45 -translate-y-[7px] opacity-0 hidden flex");
