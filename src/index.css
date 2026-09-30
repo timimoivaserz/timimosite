@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: 'Montserrat:Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url('https://static.figma.com/font/Montserrat_wght__2') format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat:Medium';
+  font-style: normal;
+  font-weight: 500;
+  src: url('https://static.figma.com/font/Montserrat_wght__2') format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat:Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://static.figma.com/font/Montserrat_wght__2') format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat:SemiBold';
+  font-style: normal;
+  font-weight: 600;
+  src: url('https://static.figma.com/font/Montserrat_wght__2') format('woff2');
+}
+
+html {
+  scroll-behavior: smooth;
+}
