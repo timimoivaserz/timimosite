@@ -1,16 +1,321 @@
 <!doctype html>
-<html lang="<!-- figma:lang -->">
+<html lang="ru">
   <head>
-    <!-- figma:head-start -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><!-- figma:title --></title>
-    <!-- figma:head-end -->
+    <title>Лаборатория ТИМиМО</title>
+    <base href="./" />
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="main.js" defer></script>
   </head>
   <body>
-    <!-- figma:body-start -->
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    <!-- figma:body-end -->
+    <div class="bg-white dark:bg-[#0f1114] flex flex-col items-start w-full min-h-dvh transition-colors duration-200">
+
+      <!-- ── Header ── solid, no blur, no pattern -->
+      <header class="sticky top-0 z-50 w-full bg-[#ececec] dark:bg-[#1a1d21] border-b border-[#d5d5d5] dark:border-[#2a2d31]">
+        <div class="flex justify-center w-full">
+          <div class="flex h-[76px] items-center justify-between w-full max-w-[1180px] px-8">
+
+            <!-- Logo -->
+            <a href="#" class="flex gap-[10px] h-10 items-center shrink-0">
+              <div class="h-[37px] w-8 shrink-0">
+                <img alt="ТИМиМО" class="block size-full" src="assets/logo.svg" />
+              </div>
+              <div class="flex flex-col items-start">
+                <p class="text-[#232427] dark:text-[#9a9d9f] text-[11px] leading-[12.65px] tracking-[0.44px] whitespace-nowrap" style="font-family:'Cygre:Regular','Montserrat:Regular',sans-serif">Лаборатория</p>
+                <p class="text-[#252525] dark:text-white text-[17px] leading-[19.55px] whitespace-nowrap" style="font-family:'Montserrat:Bold',sans-serif;font-weight:700">ТИМиМО</p>
+              </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex gap-7 items-center">
+              <a href="#about" class="text-[#2b2c2e] dark:text-[#c8cbce] text-[15px] leading-[22.5px] whitespace-nowrap opacity-80 hover:opacity-100 transition-opacity" style="font-family:'Montserrat:Medium',sans-serif;font-weight:500">О лаборатории</a>
+              <a href="#directions" class="text-[#2b2c2e] dark:text-[#c8cbce] text-[15px] leading-[22.5px] whitespace-nowrap opacity-80 hover:opacity-100 transition-opacity" style="font-family:'Montserrat:Medium',sans-serif;font-weight:500">Направления</a>
+              <a href="#publications" class="text-[#2b2c2e] dark:text-[#c8cbce] text-[15px] leading-[22.5px] whitespace-nowrap opacity-80 hover:opacity-100 transition-opacity" style="font-family:'Montserrat:Medium',sans-serif;font-weight:500">Публикации</a>
+              <a href="#team" class="text-[#2b2c2e] dark:text-[#c8cbce] text-[15px] leading-[22.5px] whitespace-nowrap opacity-80 hover:opacity-100 transition-opacity" style="font-family:'Montserrat:Medium',sans-serif;font-weight:500">Команда</a>
+              <a href="#contact" class="bg-[#20c5f5] rounded-sm px-7 py-3 text-[#0d1a1f] text-[15px] leading-[22.5px] whitespace-nowrap hover:bg-[#12b8e8] transition-colors" style="font-family:'Montserrat:Medium',sans-serif;font-weight:500">Связаться с нами</a>
+              <!-- Theme toggle -->
+              <button data-action="toggle-theme" class="theme-toggle w-9 h-9 flex items-center justify-center rounded-sm text-[#2b2c2e] dark:text-[#c8cbce] hover:bg-black/10 dark:hover:bg-white/10 transition-colors" aria-label="Переключить тему"><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+            </nav>
+
+            <!-- Mobile: theme toggle + burger -->
+            <div class="md:hidden flex items-center gap-3">
+              <button data-action="toggle-theme" class="theme-toggle w-9 h-9 flex items-center justify-center rounded-sm text-[#2b2c2e] dark:text-[#c8cbce] hover:bg-black/10 dark:hover:bg-white/10 transition-colors" aria-label="Переключить тему"><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+              <button id="burger" class="flex flex-col justify-center gap-[5px] w-8 h-8 shrink-0" aria-label="Меню" aria-expanded="false">
+                <span class="burger-line block w-6 h-[2px] bg-[#2b2c2e] dark:bg-[#c8cbce] transition-all duration-200"></span>
+                <span class="burger-line block w-6 h-[2px] bg-[#2b2c2e] dark:bg-[#c8cbce] transition-all duration-200"></span>
+                <span class="burger-line block w-6 h-[2px] bg-[#2b2c2e] dark:bg-[#c8cbce] transition-all duration-200"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#ececec] dark:bg-[#1a1d21] border-t border-[#d5d5d5] dark:border-[#2a2d31] px-8 pb-5 pt-2 flex-col gap-4">
+          <a href="#about" class="menu-link text-[#2b2c2e] dark:text-[#c8cbce] text-[15px] leading-[22.5px] opacity-80 hover:opacity-100" style="font-family:'Montserrat:Medium',sans-serif;font-weight:500">О лаборатории</a>
+          <a href="#directions" class="menu-link text-[#2b2c2e] dark:text-[#c8cbce] text-[15px] leading-[22.5px] opacity-80 hover:opacity-100" style="font-family:'Montserrat:Medium',sans-serif;font-weight:500">Направления</a>
+          <a href="#publications" class="menu-link text-[#2b2c2e] dark:text-[#c8cbce] text-[15px] leading-[22.5px] opacity-80 hover:opacity-100" style="font-family:'Montserrat:Medium',sans-serif;font-weight:500">Публикации</a>
+          <a href="#team" class="menu-link text-[#2b2c2e] dark:text-[#c8cbce] text-[15px] leading-[22.5px] opacity-80 hover:opacity-100" style="font-family:'Montserrat:Medium',sans-serif;font-weight:500">Команда</a>
+          <a href="#contact" class="menu-link bg-[#20c5f5] rounded-sm px-7 py-3 text-[#0d1a1f] text-[15px] leading-[22.5px] text-center hover:bg-[#12b8e8] transition-colors" style="font-family:'Montserrat:Medium',sans-serif;font-weight:500">Связаться с нами</a>
+        </div>
+      </header>
+
+      <!-- ── Hero ── no stats -->
+      <section class="relative w-full overflow-hidden bg-[#f5f7f8] dark:bg-[#141720]" style="min-height:480px">
+        <div class="absolute inset-0 w-full h-full opacity-0" style='background-image:url("assets/b0553.png");background-size:60.5px 69.85px'></div>
+        <div class="relative flex justify-center w-full">
+          <div class="flex flex-col items-start w-full max-w-[1180px] px-8 pt-20 md:pt-28 pb-20 md:pb-28">
+            <h1 class="text-[32px] sm:text-[38px] md:text-[44px] leading-[1.15] tracking-[-0.44px] max-w-[582px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">
+              <span class="text-[#20c5f5]">строим умные решения</span> <span class="text-[#2b2c2e] dark:text-[#e8e9ea]">на стыке инженерии и данных</span>
+            </h1>
+            <p class="mt-5 text-[#5b6266] dark:text-[#9a9d9f] text-[16px] md:text-[18px] leading-normal max-w-[560px]" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">
+              ТИМиМО — лаборатория технологий информационного моделирования и машинного обучения при университете. Разрабатываем, обучаем, внедряем.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row gap-3.5">
+              <a href="#directions" class="bg-[#0aa8d6] px-6 py-3.5 text-white text-[14.5px] leading-normal whitespace-nowrap hover:bg-[#0997c0] transition-colors text-center" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Смотреть направления</a>
+              <a href="#contact" class="border border-black/30 dark:border-white/20 px-6 py-3.5 text-[#22262a] dark:text-[#c8cbce] text-[14.5px] leading-normal whitespace-nowrap hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-center" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Связаться с нами</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── О лаборатории ── -->
+      <section id="about" class="w-full py-[88px] flex justify-center bg-white dark:bg-[#0f1114]">
+        <div class="w-full max-w-[1180px] px-8">
+          <div class="max-w-[640px]">
+            <h2 class="text-[#2b2c2e] dark:text-[#e8e9ea] text-[26px] md:text-[30px] leading-[1.5] tracking-[-0.3px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Из чего складывается работа лаборатории</h2>
+            <p class="mt-[15px] text-[#606060] dark:text-[#9a9d9f] text-[16px] leading-6" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Три вещи, которые определяют, как мы ведём проекты и обучаем студентов.</p>
+          </div>
+          <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="flex flex-col items-start">
+              <h3 class="text-[#2b2c2e] dark:text-[#e8e9ea] text-[19px] leading-[28.5px] tracking-[-0.19px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Ведём исследования</h3>
+              <p class="mt-2.5 mb-4 text-[#606060] dark:text-[#9a9d9f] text-[16px] leading-6" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">От постановки задачи до модели: собираем данные, строим и проверяем гипотезы вместе со студентами.</p>
+              <a href="#publications" class="text-[#20c5f5] text-[14px] leading-[21px] border-b border-transparent hover:border-[#20c5f5] transition-colors" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Публикации</a>
+            </div>
+            <div class="flex flex-col items-start">
+              <h3 class="text-[#2b2c2e] dark:text-[#e8e9ea] text-[19px] leading-[28.5px] tracking-[-0.19px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Готовим инженеров будущего</h3>
+              <p class="mt-2.5 mb-4 text-[#606060] dark:text-[#9a9d9f] text-[16px] leading-6" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Студенты входят в реальные проекты — от расчётов до внедрения моделей машинного обучения.</p>
+              <a href="#contact" class="text-[#20c5f5] text-[14px] leading-[21px] border-b border-transparent hover:border-[#20c5f5] transition-colors" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Для студентов</a>
+            </div>
+            <div class="flex flex-col items-start">
+              <h3 class="text-[#2b2c2e] dark:text-[#e8e9ea] text-[19px] leading-[28.5px] tracking-[-0.19px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Работаем с индустрией</h3>
+              <p class="mt-2.5 mb-4 text-[#606060] dark:text-[#9a9d9f] text-[16px] leading-6" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Решаем прикладные задачи по заказу партнёров — от анализа данных до готовых ML-решений.</p>
+              <a href="#directions" class="text-[#20c5f5] text-[14px] leading-[21px] border-b border-transparent hover:border-[#20c5f5] transition-colors" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Наши проекты</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ── Направления и проекты ── -->
+      <section id="directions" class="w-full bg-[#f3f5f6] dark:bg-[#191c20] py-[88px] flex justify-center">
+        <div class="w-full max-w-[1180px] px-8">
+          <div class="max-w-[640px]">
+            <h2 class="text-[#2b2c2e] dark:text-[#e8e9ea] text-[26px] md:text-[30px] leading-[1.5] tracking-[-0.3px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Направления и проекты</h2>
+            <p class="mt-[15px] text-[#606060] dark:text-[#9a9d9f] text-[16px] leading-6" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Информационное моделирование и машинное обучение — в цифрах.</p>
+          </div>
+          <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white dark:bg-[#1e2226] border border-[#e7e9ea] dark:border-[#2e3135] p-8 flex flex-col gap-[10px]" style="border-width:0.667px">
+              <div class="relative h-11 whitespace-nowrap">
+                <span class="text-[#20c5f5] text-[44px] leading-[44px] absolute left-0 top-0" style="font-family:'Montserrat:Bold',sans-serif;font-weight:700">3</span>
+              </div>
+              <div class="pb-[9px]">
+                <p class="text-[#2b2c2e] dark:text-[#e8e9ea] text-[18.72px] leading-[28.08px] tracking-[-0.1872px]" style="font-family:'Cygre:Bold','Montserrat:Bold',sans-serif;font-weight:700">научных направления</p>
+              </div>
+              <p class="pb-4 text-[#606060] dark:text-[#9a9d9f] text-[16px] leading-6" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Информационное моделирование, машинное обучение, анализ данных.</p>
+              <a href="#" class="text-[#20c5f5] text-[14px] leading-[21px] border-b border-transparent hover:border-[#20c5f5] transition-colors w-fit" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Все направления</a>
+            </div>
+            <div class="bg-white dark:bg-[#1e2226] border border-[#e7e9ea] dark:border-[#2e3135] p-8 flex flex-col gap-[10px]" style="border-width:0.667px">
+              <div class="relative h-11 whitespace-nowrap">
+                <span class="text-[#20c5f5] text-[44px] leading-[44px] absolute left-0 top-0" style="font-family:'Montserrat:Bold',sans-serif;font-weight:700">12</span>
+                <span class="plus-mark text-[#2b2c2e] dark:text-[#e8e9ea] text-[16px] leading-4 absolute top-[14px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600;left:52px">+</span>
+              </div>
+              <div class="pb-[9px]">
+                <p class="text-[#2b2c2e] dark:text-[#e8e9ea] text-[18.72px] leading-[28.08px] tracking-[-0.1872px]" style="font-family:'Cygre:Bold','Montserrat:Bold',sans-serif;font-weight:700">проектов в работе</p>
+              </div>
+              <p class="pb-4 text-[#606060] dark:text-[#9a9d9f] text-[16px] leading-6" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">От студенческих курсовых до прикладных задач партнёров.</p>
+              <a href="#" class="text-[#20c5f5] text-[14px] leading-[21px] border-b border-transparent hover:border-[#20c5f5] transition-colors w-fit" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Смотреть проекты</a>
+            </div>
+            <div class="bg-white dark:bg-[#1e2226] border border-[#e7e9ea] dark:border-[#2e3135] p-8 flex flex-col gap-[10px]" style="border-width:0.667px">
+              <div class="relative h-11 whitespace-nowrap">
+                <span class="text-[#20c5f5] text-[44px] leading-[44px] absolute left-0 top-0" style="font-family:'Montserrat:Bold',sans-serif;font-weight:700">20</span>
+                <span class="plus-mark text-[#2b2c2e] dark:text-[#e8e9ea] text-[16px] leading-4 absolute top-[14px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600;left:64px">+</span>
+              </div>
+              <div class="pb-[9px]">
+                <p class="text-[#2b2c2e] dark:text-[#e8e9ea] text-[18.72px] leading-[28.08px] tracking-[-0.1872px]" style="font-family:'Cygre:Bold','Montserrat:Bold',sans-serif;font-weight:700">участников лаборатории</p>
+              </div>
+              <p class="pb-4 text-[#606060] dark:text-[#9a9d9f] text-[16px] leading-6" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Студенты, аспиранты и научные руководители.</p>
+              <a href="#" class="text-[#20c5f5] text-[14px] leading-[21px] border-b border-transparent hover:border-[#20c5f5] transition-colors w-fit" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Команда</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Публикации ── -->
+      <section id="publications" class="w-full py-[88px] flex justify-center bg-white dark:bg-[#0f1114]">
+        <div class="w-full max-w-[1180px] px-8">
+          <div class="max-w-[640px]">
+            <h2 class="text-[#2b2c2e] dark:text-[#e8e9ea] text-[26px] md:text-[30px] leading-[1.5] tracking-[-0.3px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Публикации</h2>
+            <p class="mt-[15px] text-[#606060] dark:text-[#9a9d9f] text-[16px] leading-6" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Статьи и материалы конференций участников лаборатории.</p>
+          </div>
+          <div class="pub-list mt-12 flex flex-col divide-y divide-[#e7e9ea] dark:divide-[#2e3135]">
+            <div class="py-7 flex flex-col md:flex-row md:gap-12">
+              <span class="text-[#20c5f5] text-[14px] leading-[21px] tracking-[0.56px] shrink-0 mb-2 md:mb-0 md:w-12" style="font-family:'Cygre:Bold','Montserrat:Bold',sans-serif;font-weight:700">2024</span>
+              <div class="flex flex-col gap-1.5">
+                <a href="#" class="text-[#2b2c2e] dark:text-[#e8e9ea] text-[17px] leading-[26px] tracking-[-0.17px] hover:text-[#20c5f5] dark:hover:text-[#20c5f5] transition-colors" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Применение методов машинного обучения в информационном моделировании зданий</a>
+                <p class="text-[#606060] dark:text-[#9a9d9f] text-[14px] leading-[21px]" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Иванов А.А., Петрова М.В.</p>
+                <p class="text-[#9a9d9f] dark:text-[#5b6266] text-[13px] leading-5" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Вестник строительных технологий</p>
+              </div>
+            </div>
+            <div class="py-7 flex flex-col md:flex-row md:gap-12">
+              <span class="text-[#20c5f5] text-[14px] leading-[21px] tracking-[0.56px] shrink-0 mb-2 md:mb-0 md:w-12" style="font-family:'Cygre:Bold','Montserrat:Bold',sans-serif;font-weight:700">2024</span>
+              <div class="flex flex-col gap-1.5">
+                <a href="#" class="text-[#2b2c2e] dark:text-[#e8e9ea] text-[17px] leading-[26px] tracking-[-0.17px] hover:text-[#20c5f5] dark:hover:text-[#20c5f5] transition-colors" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Автоматизация обработки BIM-данных с использованием нейронных сетей</a>
+                <p class="text-[#606060] dark:text-[#9a9d9f] text-[14px] leading-[21px]" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Сидоров К.Н., Иванов А.А.</p>
+                <p class="text-[#9a9d9f] dark:text-[#5b6266] text-[13px] leading-5" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Информационные технологии в проектировании</p>
+              </div>
+            </div>
+            <div class="py-7 flex flex-col md:flex-row md:gap-12">
+              <span class="text-[#20c5f5] text-[14px] leading-[21px] tracking-[0.56px] shrink-0 mb-2 md:mb-0 md:w-12" style="font-family:'Cygre:Bold','Montserrat:Bold',sans-serif;font-weight:700">2023</span>
+              <div class="flex flex-col gap-1.5">
+                <a href="#" class="text-[#2b2c2e] dark:text-[#e8e9ea] text-[17px] leading-[26px] tracking-[-0.17px] hover:text-[#20c5f5] dark:hover:text-[#20c5f5] transition-colors" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Интеграция ML-моделей в процессы цифрового двойника промышленного предприятия</a>
+                <p class="text-[#606060] dark:text-[#9a9d9f] text-[14px] leading-[21px]" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Петрова М.В., Козлов Д.С.</p>
+                <p class="text-[#9a9d9f] dark:text-[#5b6266] text-[13px] leading-5" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Промышленная автоматика</p>
+              </div>
+            </div>
+            <div class="py-7 flex flex-col md:flex-row md:gap-12">
+              <span class="text-[#20c5f5] text-[14px] leading-[21px] tracking-[0.56px] shrink-0 mb-2 md:mb-0 md:w-12" style="font-family:'Cygre:Bold','Montserrat:Bold',sans-serif;font-weight:700">2023</span>
+              <div class="flex flex-col gap-1.5">
+                <a href="#" class="text-[#2b2c2e] dark:text-[#e8e9ea] text-[17px] leading-[26px] tracking-[-0.17px] hover:text-[#20c5f5] dark:hover:text-[#20c5f5] transition-colors" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Классификация дефектов конструкций по данным лазерного сканирования</a>
+                <p class="text-[#606060] dark:text-[#9a9d9f] text-[14px] leading-[21px]" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Козлов Д.С., Сидоров К.Н.</p>
+                <p class="text-[#9a9d9f] dark:text-[#5b6266] text-[13px] leading-5" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Строительная механика и расчёт сооружений</p>
+              </div>
+            </div>
+            <div class="py-7 flex flex-col md:flex-row md:gap-12">
+              <span class="text-[#20c5f5] text-[14px] leading-[21px] tracking-[0.56px] shrink-0 mb-2 md:mb-0 md:w-12" style="font-family:'Cygre:Bold','Montserrat:Bold',sans-serif;font-weight:700">2022</span>
+              <div class="flex flex-col gap-1.5">
+                <a href="#" class="text-[#2b2c2e] dark:text-[#e8e9ea] text-[17px] leading-[26px] tracking-[-0.17px] hover:text-[#20c5f5] dark:hover:text-[#20c5f5] transition-colors" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Предиктивное обслуживание оборудования на основе данных IoT-сенсоров</a>
+                <p class="text-[#606060] dark:text-[#9a9d9f] text-[14px] leading-[21px]" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Иванов А.А., Козлов Д.С., Петрова М.В.</p>
+                <p class="text-[#9a9d9f] dark:text-[#5b6266] text-[13px] leading-5" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Автоматизация в промышленности</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Как мы работаем ── -->
+      <section class="w-full bg-[#f3f5f6] dark:bg-[#191c20] py-[88px] flex justify-center">
+        <div class="w-full max-w-[1180px] px-8">
+          <div class="max-w-[640px]">
+            <h2 class="text-[#2b2c2e] dark:text-[#e8e9ea] text-[26px] md:text-[30px] leading-[1.5] tracking-[-0.3px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Как мы работаем</h2>
+            <p class="mt-[15px] text-[#606060] dark:text-[#9a9d9f] text-[16px] leading-6" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Один и тот же путь для учебного и партнёрского проекта.</p>
+          </div>
+          <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="flex flex-col items-start">
+              <p class="text-[#20c5f5] text-[14px] leading-[21px] tracking-[0.56px]" style="font-family:'Cygre:Bold','Montserrat:Bold',sans-serif;font-weight:700">01</p>
+              <h3 class="mt-3 text-[#2b2c2e] dark:text-[#e8e9ea] text-[19px] leading-[28.5px] tracking-[-0.19px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Формулируем задачу</h3>
+              <p class="mt-[9.5px] text-[#606060] dark:text-[#9a9d9f] text-[16px] leading-6" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Вместе с кафедрой или партнёром определяем, что именно нужно решить.</p>
+            </div>
+            <div class="flex flex-col items-start">
+              <p class="text-[#20c5f5] text-[14px] leading-[21px] tracking-[0.56px]" style="font-family:'Cygre:Bold','Montserrat:Bold',sans-serif;font-weight:700">02</p>
+              <h3 class="mt-3 text-[#2b2c2e] dark:text-[#e8e9ea] text-[19px] leading-[28.5px] tracking-[-0.19px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Строим модель</h3>
+              <p class="mt-[9.5px] text-[#606060] dark:text-[#9a9d9f] text-[16px] leading-6" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Совмещаем информационное моделирование и машинное обучение.</p>
+            </div>
+            <div class="flex flex-col items-start">
+              <p class="text-[#20c5f5] text-[14px] leading-[21px] tracking-[0.56px]" style="font-family:'Cygre:Bold','Montserrat:Bold',sans-serif;font-weight:700">03</p>
+              <h3 class="mt-3 text-[#2b2c2e] dark:text-[#e8e9ea] text-[19px] leading-[28.5px] tracking-[-0.19px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Внедряем и проверяем</h3>
+              <p class="mt-[9.5px] text-[#606060] dark:text-[#9a9d9f] text-[16px] leading-6" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Тестируем решение на реальных данных и дорабатываем по результатам.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Команда ── -->
+      <section id="team" class="w-full bg-white dark:bg-[#0f1114] py-[88px] flex justify-center">
+        <div class="w-full max-w-[1180px] px-8">
+          <div class="max-w-[640px]">
+            <h2 class="text-[#2b2c2e] dark:text-[#e8e9ea] text-[26px] md:text-[30px] leading-[1.5] tracking-[-0.3px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Команда</h2>
+            <p class="mt-[15px] text-[#606060] dark:text-[#9a9d9f] text-[16px] leading-6" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Пример карточек — заменить на реальных участников лаборатории.</p>
+          </div>
+          <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-7">
+            <div class="flex flex-col items-start">
+              <div class="w-full aspect-square flex items-center justify-center overflow-hidden" style="background-image:linear-gradient(159.99deg, rgb(32,197,245) 8.49%, rgb(102,240,248) 91.51%)">
+                <span class="opacity-75 text-[#0d1a1f] text-[13px] leading-[19.5px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">фото</span>
+              </div>
+              <p class="mt-3.5 text-[#2b2c2e] dark:text-[#e8e9ea] text-[16px] leading-6 tracking-[-0.16px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Научный руководитель</p>
+              <p class="mt-0.5 pb-2 text-[#606060] dark:text-[#9a9d9f] text-[13px] leading-[19.5px]" style="font-family:'Cygre:Regular','Montserrat:Regular',sans-serif">Руководитель лаборатории</p>
+            </div>
+            <div class="flex flex-col items-start">
+              <div class="w-full aspect-square flex items-center justify-center overflow-hidden" style="background-image:linear-gradient(159.99deg, rgb(32,197,245) 8.49%, rgb(102,240,248) 91.51%)">
+                <span class="opacity-75 text-[#0d1a1f] text-[13px] leading-[19.5px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">фото</span>
+              </div>
+              <p class="mt-3.5 text-[#2b2c2e] dark:text-[#e8e9ea] text-[16px] leading-6 tracking-[-0.16px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Инженер-исследователь</p>
+              <p class="mt-0.5 pb-2 text-[#606060] dark:text-[#9a9d9f] text-[13px] leading-[19.5px]" style="font-family:'Cygre:Regular','Montserrat:Regular',sans-serif">Информационное моделирование</p>
+            </div>
+            <div class="flex flex-col items-start">
+              <div class="w-full aspect-square flex items-center justify-center overflow-hidden" style="background-image:linear-gradient(159.99deg, rgb(32,197,245) 8.49%, rgb(102,240,248) 91.51%)">
+                <span class="opacity-75 text-[#0d1a1f] text-[13px] leading-[19.5px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">фото</span>
+              </div>
+              <p class="mt-3.5 text-[#2b2c2e] dark:text-[#e8e9ea] text-[16px] leading-6 tracking-[-0.16px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">ML-инженер</p>
+              <p class="mt-0.5 pb-2 text-[#606060] dark:text-[#9a9d9f] text-[13px] leading-[19.5px]" style="font-family:'Cygre:Regular','Montserrat:Regular',sans-serif">Машинное обучение</p>
+            </div>
+            <div class="flex flex-col items-start">
+              <div class="w-full aspect-square flex items-center justify-center overflow-hidden" style="background-image:linear-gradient(159.99deg, rgb(32,197,245) 8.49%, rgb(102,240,248) 91.51%)">
+                <span class="opacity-75 text-[#0d1a1f] text-[13px] leading-[19.5px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">фото</span>
+              </div>
+              <p class="mt-3.5 text-[#2b2c2e] dark:text-[#e8e9ea] text-[16px] leading-6 tracking-[-0.16px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Студент-исследователь</p>
+              <p class="mt-0.5 pb-2 text-[#606060] dark:text-[#9a9d9f] text-[13px] leading-[19.5px]" style="font-family:'Cygre:Regular','Montserrat:Regular',sans-serif">Анализ данных</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── CTA ── -->
+      <section id="contact" class="w-full py-[72px] flex justify-center" style="background-image:linear-gradient(156.73deg, rgb(32,197,245) 7.74%, rgb(102,240,248) 92.27%)">
+        <div class="w-full max-w-[1180px] px-8 flex flex-col items-center">
+          <h2 class="text-[#0d1a1f] text-[24px] md:text-[30px] leading-[1.5] tracking-[-0.3px] text-center max-w-[445px]" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Хотите присоединиться к лаборатории или обсудить проект?</h2>
+          <p class="mt-3 pb-7 text-[#173038] text-[16px] leading-6 text-center max-w-[509px]" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Ответим студентам, кафедрам и индустриальным партнёрам.</p>
+          <a href="mailto:lab.timimo@example.com" class="bg-[#0d1a1f] rounded-sm px-7 py-3.5 text-white text-[15px] leading-[22.5px] text-center whitespace-nowrap hover:bg-[#1a2d35] transition-colors" style="font-family:'Montserrat:SemiBold',sans-serif;font-weight:600">Связаться с нами</a>
+        </div>
+      </section>
+
+      <!-- ── Footer ── -->
+      <footer class="w-full bg-[#232427] dark:bg-[#0a0c0e] pt-14 pb-7 flex justify-center overflow-hidden">
+        <div class="w-full max-w-[1180px] px-8">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="col-span-2 md:col-span-1">
+              <p class="pt-[18px] text-white text-[14px] leading-[21px]" style="font-family:'Cygre:Bold','Montserrat:Bold',sans-serif;font-weight:700">Лаборатория ТИМиМО</p>
+              <p class="mt-4 text-[#9a9d9f] text-[13.5px] leading-[20.25px] max-w-[286px]" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Технологии информационного моделирования и машинного обучения.</p>
+            </div>
+            <div>
+              <p class="pt-[18px] text-white text-[14px] leading-[21px]" style="font-family:'Cygre:Bold','Montserrat:Bold',sans-serif;font-weight:700">Разделы</p>
+              <div class="mt-4 flex flex-col gap-2.5">
+                <a href="#about" class="text-[#c8cbce] text-[14px] leading-[21px] opacity-85 hover:opacity-100 transition-opacity" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">О лаборатории</a>
+                <a href="#directions" class="text-[#c8cbce] text-[14px] leading-[21px] opacity-85 hover:opacity-100 transition-opacity" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Направления</a>
+                <a href="#publications" class="text-[#c8cbce] text-[14px] leading-[21px] opacity-85 hover:opacity-100 transition-opacity" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Публикации</a>
+                <a href="#team" class="text-[#c8cbce] text-[14px] leading-[21px] opacity-85 hover:opacity-100 transition-opacity" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Команда</a>
+              </div>
+            </div>
+            <div>
+              <p class="pt-[18px] text-white text-[14px] leading-[21px]" style="font-family:'Cygre:Bold','Montserrat:Bold',sans-serif;font-weight:700">Контакты</p>
+              <div class="mt-4 flex flex-col gap-2.5">
+                <a href="mailto:lab.timimo@example.com" class="text-[#c8cbce] text-[14px] leading-[21px] opacity-85 hover:opacity-100 transition-opacity" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">lab.timimo@example.com</a>
+                <p class="text-[#c8cbce] text-[14px] leading-[21px] opacity-85" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Корпус А, аудитория 2222</p>
+              </div>
+            </div>
+            <div>
+              <p class="pt-[18px] text-white text-[14px] leading-[21px]" style="font-family:'Cygre:Bold','Montserrat:Bold',sans-serif;font-weight:700">Соцсети</p>
+              <div class="mt-4 flex flex-col gap-2.5">
+                <a href="#" class="text-[#c8cbce] text-[14px] leading-[21px] opacity-85 hover:opacity-100 transition-opacity" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Telegram</a>
+                <a href="#" class="text-[#c8cbce] text-[14px] leading-[21px] opacity-85 hover:opacity-100 transition-opacity" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">VK</a>
+              </div>
+            </div>
+          </div>
+          <div class="mt-10 flex items-start justify-between pt-5 border-t" style="border-color:rgba(255,255,255,0.12);border-top-width:0.667px">
+            <p class="text-[#8b8e90] text-[12.5px] leading-[18.75px]" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">© Лаборатория ТИМиМО</p>
+            <p class="text-[#8b8e90] text-[12.5px] leading-[18.75px]" style="font-family:'Montserrat:Regular',sans-serif;font-weight:400">Пн–Пт, 10:00–18:00</p>
+          </div>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
